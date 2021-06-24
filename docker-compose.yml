@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  mssql-server-linux:
+    container_name: mssql-server-linux
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    volumes:
+      - type: volume
+        source: data
+        target: /var/opt/mssql
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: s0me_S3cr3t-p@ssw0rd
+      ACCEPT_EULA: "Y"
+volumes:
+  data:
